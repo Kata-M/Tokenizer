@@ -7,19 +7,30 @@ class Tokenizer{
     public static void main(String args[]){ 
 
         //String fileName = "F-train146.txt";
-        String s1 = "Today is a beautiful, nice summer day! ";
+        String s3 = "Today is a beautiful, nice summer day! ";
         String s2 = "The sun is shining, the birds are singing and the sky is as blue as the deep ocean.  ";
-        String s3 = "However, tomorrow there will be clouds coming our way - so we’d better enjoy the day today as good as we can. ";
+        String s1 = "However, tomorrow there will be clouds coming our way - so we’d better enjoy the day today as good as we can. ";
         
-        System.out.println(s1);
 
-        System.out.println("testMethod: "+ RemoveDuplicates(s2));
 
+        String s="Hi! I am good. How about you?";
         ArrayList<String> arrayS1 =new ArrayList<String>();//Creating arraylist.
-        //arrayS1.add(0,"test array");
-        //arrayS1.add(1,"test array 2");
-        //arrayS1.add(2,"test array 3");
-        System.out.println("beofre : "+arrayS1);
+
+        //Pattern pattern = Pattern.compile("[\\w]+.");
+        Pattern pattern = Pattern.compile("([\\w]+)|([\\W&&[^\\s]])");
+        Matcher matcher = pattern.matcher(s);
+
+        for(int i=1; matcher.find();i++){
+             arrayS1.add(arrayS1.size(), matcher.group());
+             System.out.println("Token "+i+": "+ matcher.group());
+        }
+        System.out.println("ArrayS1 : "+arrayS1);
+
+
+        //first version of the tokenizer. works for words but does not tokenize on all the punctuations.
+        /*
+        ArrayList<String> arrayS1 =new ArrayList<String>();//Creating arraylist.
+        System.out.println("before : "+arrayS1);
 
         String temp =new String();//Creating arraylist to collect the word tokens.
        
@@ -28,13 +39,22 @@ class Tokenizer{
             if(Character.compare(' ',s1.charAt(i)) == 0){
                 arrayS1.add(arrayS1.size(), temp);
                 temp = "";
-            }else{
+            }else if(Character.compare('.',s1.charAt(i)) == 0){
+                arrayS1.add(arrayS1.size(), ".");
+                temp = "";
+            }else if(Character.compare('!',s1.charAt(i)) == 0){
+                arrayS1.add(arrayS1.size(), "!");
+                temp = "";
+            }
+            else{
                     temp = temp + s1.charAt(i);
-                    System.out.println(temp);
+                    //System.out.println(temp);
             }
         }
         System.out.println("after : "+arrayS1);
+        */
+   }
  
-    } 
+     
 
 } 
