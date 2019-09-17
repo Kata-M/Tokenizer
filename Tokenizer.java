@@ -8,21 +8,19 @@ class Tokenizer{
 
         //String fileName = "F-train146.txt";
         String s3 = "Today is a beautiful, nice summer day! ";
-        String s2 = "The sun is shining, the birds are singing and the sky is as blue as the deep ocean.  ";
+        String s2 = "The sun is shining, the birds are singing and the sky is as blue as the deep ocean. ";
         String s1 = "However, tomorrow there will be clouds coming our way - so we’d better enjoy the day today as good as we can. ";
-        
+        String s0 = "Hi! I am good. How about you?";
 
+        String s = "Today is a beautiful, nice summer day! The sun is shining, the birds are singing and the sky is as blue as the deep ocean. However, tomorrow there will be clouds coming our way - so we’d better enjoy the day today as good as we can. ";
 
-        String s="Hi! I am good. How about you?";
         ArrayList<String> arrayS1 =new ArrayList<String>();//Creating arraylist.
-
-        //Pattern pattern = Pattern.compile("[\\w]+.");
-        Pattern pattern = Pattern.compile("([\\w]+)|([\\W&&[^\\s]])");
+        Pattern pattern = Pattern.compile("([\\w]+)|([\\W&&[^\\s]]) | ([\\w]?)+’[\\w]+");
         Matcher matcher = pattern.matcher(s);
 
         for(int i=1; matcher.find();i++){
              arrayS1.add(arrayS1.size(), matcher.group());
-             System.out.println("Token "+i+": "+ matcher.group());
+             //System.out.println("Token "+i+": "+ matcher.group());
         }
         System.out.println("ArrayS1 : "+arrayS1);
 
