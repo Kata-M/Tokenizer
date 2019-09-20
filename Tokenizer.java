@@ -7,16 +7,23 @@ class Tokenizer{
     public static void main(String args[]){ 
 
         //String fileName = "F-train146.txt";
-        String s3 = "Today is a beautiful, nice summer day! ";
-        String s2 = "The sun is shining, the birds are singing and the sky is as blue as the deep ocean. ";
-        String s1 = "However, tomorrow there will be clouds coming our way - so we’d better enjoy the day today as good as we can. ";
-        String s0 = "Hi! I am good. How about you?";
+        String s9 = "Today is a beautiful, nice summer day! ";
+        String s8 = "The sun is shining, the birds are singing and the sky is as blue as the deep ocean. ";
+        String s7 = "However, tomorrow there will be clouds coming our way - so we’d better enjoy the day today as good as we can. ";
+        String s6 = "Hi! I am good. How about you?";
 
         String s = "Today is a beautiful, nice summer day! The sun is shining, the birds are singing and the sky is as blue as the deep ocean. However, tomorrow there will be clouds coming our way - so we’d better enjoy the day today as good as we can. ";
 
+
+        String doc1 = "I like this assignment: it is fun.";
+        String doc2 = "I won a prize, but I won’t be able to attend the ceremony.";
+        String doc3 = " “The strange case of Dr. Jekyll and Mr. Hyde” is a famous book... but I haven’t read it.";
+        String doc4 = "I work for the C.I.A., and you?";
+        String doc5 = "OMG #Twitter is sooooo coooool <3 :-) <– lol...why do i write like this idk right? :) 😻👍";
+
         ArrayList<String> arrayS1 =new ArrayList<String>();//Creating arraylist.
         Pattern pattern = Pattern.compile("([\\w]+)|([\\W&&[^\\s]]) | ([\\w]?)+’[\\w]+");
-        Matcher matcher = pattern.matcher(s);
+        Matcher matcher = pattern.matcher(doc5);
 
         for(int i=1; matcher.find();i++){
              arrayS1.add(arrayS1.size(), matcher.group());
